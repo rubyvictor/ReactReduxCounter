@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import "./Counter.css";
 
 class Counter extends Component {
-  state = { count: 10 };
+  state = { count: 0 };
 
   increment = () => {
     //   this.setState({count:this.state.count + 1})
@@ -26,9 +26,9 @@ class Counter extends Component {
 }
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => ({
   count: state.count
-}
+});
 // export the connected component, not the component.
 // tell connect what data you need in the first parameter
 export default connect(mapStateToProps)(Counter)
