@@ -4,17 +4,26 @@ import Counter from './Counter';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
-function reducer() {
-  //return the state with the proper object shape
-  return { count: 72 };
+const initialState = {
+  count: 0
+};
+
+function reducer(state = initialState, action) {
+  //   console.log(action)
+  switch (action.type) {
+    case 'INCREMENT':
+      return { count: state.count + 10 };
+    case 'DECREMENT':
+      return { count: state.count - 10 };
+    default:
+      return state;
+  }
 }
 
-// 1. create the store using redux
-const store = createStore(reducer); // this expects 1 arg, the reducer function
+const store = createStore(reducer);
+// store.dispatch({ type: 'INCREMENT' });
+// store.dispatch({ type: 'DECREMENT' });
 
-// 2. provide the store to the App using Provider component from react-redux
-// by wrapping the root of App with Provider
-// 3. pass in redux store into the Provider's store props
 const App = props => {
   return (
     <Provider store={store}>
