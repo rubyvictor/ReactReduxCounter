@@ -1,0 +1,21 @@
+.counter {
+  box-sizing: border-box;
+  width: 20%;
+  border: 5px solid #e18728;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center
+}
+
+.count {
+  font-size: 2em;
+}
+
+.minus-button {
+  font-size: 1em;
+}
+
+.plus-button {
+  font-size: 1em
+}
